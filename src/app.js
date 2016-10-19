@@ -60,7 +60,7 @@ var levelLayer = cc.Layer.extend({
             switch (level[i][j]) {
                case 1:
                   var groundSprite = cc.Sprite.create(res.ground_png);
-                  groundSprite.setPosition(tileSize / 2 + tileSize * j, 96 * (7 - i) - tileSize / 2);
+                  groundSprite.setPosition(tileSize * 4, tileSize * 1.1);
                   this.addChild(groundSprite);
                   break;
                case 2:
@@ -152,24 +152,23 @@ var Player = cc.Sprite.extend({
           //実行
           this.runAction(action);
       */
-      /*
+
           //３．テクスチャーからスプライトフレームを切り出す方法
               //スプライトフレームを格納する配列
               var texture = cc.textureCache.addImage(res.player_sheet);
               //スプライトフレームを作成
-              var frame1 = new cc.SpriteFrame.createWithTexture(texture, cc.rect(0, 0, 96, 96));
-              var frame2 = new cc.SpriteFrame.createWithTexture(texture, cc.rect(96, 0, 96, 96));
+              var frame1 = new cc.SpriteFrame.createWithTexture(texture, cc.rect(0, 0, 200, 135));
+              var frame2 = new cc.SpriteFrame.createWithTexture(texture, cc.rect(34, 0, 200, 135));
               //スプライトフレームを配列に登録
               var animationframe = [];
               animationframe.push(frame1);
               animationframe.push(frame2);
               //スプライトフレームの配列を連続再生するアニメーションの定義
-              var animation = new cc.Animation(animationframe, 0.08);
+              var animation = new cc.Animation(animationframe, 0.8);
               //永久ループのアクションを定義
               var action = new cc.RepeatForever(new cc.animate(animation));
               //実行
-              this.runAction(action);
-      */
+              //this.runAction(action);
 
 
       // スプライトシートをキャッシュに登録
@@ -186,7 +185,7 @@ var Player = cc.Sprite.extend({
       //スプライトフレームの配列を連続再生するアニメーションの定義
       var animation = new cc.Animation(animationframe, 0.08);
       //永久ループのアクションを定義
-      var action = new cc.RepeatForever(new cc.animate(animation));
+      //var action = new cc.RepeatForever(new cc.animate(animation));
       //実行
       this.initWithFile(res.player_sheet);
       this.runAction(action);
