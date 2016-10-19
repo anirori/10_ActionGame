@@ -1,5 +1,5 @@
 var res = {
-  
+     bat_frames: "res/bat_frames.png",
 
 };
 
