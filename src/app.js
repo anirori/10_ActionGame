@@ -2,11 +2,11 @@ var size;
 //1:地面　2:ブロック　3:プレイヤ　4:ゾンビ 5:こうもり
 var level = [
    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
    [0, 0, 0, 0, 0, 0, 2, 2, 2, 0],
    [6, 0, 0, 0, 0, 0, 0, 0, 0, 7],
    [0, 0, 0, 2, 2, 2, 0, 0, 0, 0],
-   [0, 0, 0, 0, 3, 0, 0, 0, 4, 0],
+   [0, 0, 0, 0, 3, 0, 0, 5, 4, 0],
    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 var tileSize = 96;
@@ -70,7 +70,7 @@ var levelLayer = cc.Layer.extend({
             switch (level[i][j]) {
                case 1:
                   var groundSprite = cc.Sprite.create(res.ground_png);
-                  groundSprite.setPosition(tileSize * 4, tileSize * 1.1);
+                  groundSprite.setPosition(tileSize * 4, tileSize * 1.2);
                   this.addChild(groundSprite);
                   break;
                case 2:
@@ -146,7 +146,7 @@ var Player = cc.Sprite.extend({
       for (i = 0; i < 7; i++) {　　　　　　
          for (j = 0; j < 10; j++) {
             if (level[i][j] == 3) {
-               this.setPosition(tileSize / 2 + tileSize * j, 96 * (7 - i) - tileSize / 1.4);
+               this.setPosition(tileSize / 2 + tileSize * j, 96 * (7 - i) - tileSize / 1.6);
                playerPosition = {
                   x: j,
                   y: i
@@ -164,11 +164,13 @@ var Player = cc.Sprite.extend({
           var frame2 = new cc.SpriteFrame(res.player02_png, cc.rect(0, 0, 96, 120));
           var frame3 = new cc.SpriteFrame(res.player03_png, cc.rect(0, 0, 96, 120));
           var frame4 = new cc.SpriteFrame(res.player04_png, cc.rect(0, 0, 96, 120));
+          var frame5 = new cc.SpriteFrame(res.player05_png, cc.rect(0, 0, 96, 120));
           //スプライトフレームを配列に登録
           animationframe.push(frame1);
           animationframe.push(frame2);
           animationframe.push(frame3);
           animationframe.push(frame4);
+          animationframe.push(frame5);
           //スプライトフレームの配列を連続再生するアニメーションの定義
           var animation = new cc.Animation(animationframe, 0.4);
           //永久ループのアクションを定義
@@ -207,7 +209,7 @@ var Player = cc.Sprite.extend({
       animationframe.push(frame1);
       animationframe.push(frame2);
       //スプライトフレームの配列を連続再生するアニメーションの定義
-      var animation = new cc.Animation(animationframe, 0.08);
+      var animation = new cc.Animation(animationframe, 0.8);
       //永久ループのアクションを定義
       //var action = new cc.RepeatForever(new cc.animate(animation));
       //実行

@@ -1,4 +1,6 @@
 var res = {
+  //タイトル
+  Title_png: "res/titl.png",
   //プレイヤー
   player_sheet: "res/sir_awesome_frames.png",
   player_plist: "res/player.plist",
@@ -6,6 +8,7 @@ var res = {
   player02_png: "res/player2.png",
   player03_png: "res/player3.png",
   player04_png: "res/player4.png",
+  player05_png: "res/player5.png",
   //背景
   ground_png: "res/background_front.png",
   background_png: "res/background_back.png",
@@ -18,6 +21,8 @@ var res = {
   ui_panels_png: "res/ui_panels.png",
   //敵
   bat_frames: "res/bat_frames.png",
+  zonbi_frames: "res/zombie_frames.png",
+  zonbi01_png: "res/zonbi1.png",
 
 };
 

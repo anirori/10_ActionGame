@@ -26,6 +26,39 @@
                 <key>sourceSize</key>
                 <string>{96,96}</string>
             </dict>
+            <key>player03</key>
+            <dict>
+                <key>frame</key>
+                <string>{{96,0},{96,96}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceSize</key>
+                <string>{96,96}</string>
+            </dict>
+            <key>player04</key>
+            <dict>
+                <key>frame</key>
+                <string>{{96,0},{96,96}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceSize</key>
+                <string>{96,96}</string>
+            </dict>
+            <key>player05</key>
+            <dict>
+                <key>frame</key>
+                <string>{{96,0},{96,96}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceSize</key>
+                <string>{96,96}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
