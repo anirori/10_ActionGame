@@ -7,7 +7,7 @@
             <key>player01</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{96,96}}</string>
+                <string>{{0,385},{200,125}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -18,7 +18,7 @@
             <key>player02</key>
             <dict>
                 <key>frame</key>
-                <string>{{96,0},{96,96}}</string>
+                <string>{{200,385},{200,125}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -29,7 +29,7 @@
             <key>player03</key>
             <dict>
                 <key>frame</key>
-                <string>{{96,0},{96,96}}</string>
+                <string>{{400,385},{200,125}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -40,7 +40,7 @@
             <key>player04</key>
             <dict>
                 <key>frame</key>
-                <string>{{96,0},{96,96}}</string>
+                <string>{{600,385},{200,125}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -51,7 +51,7 @@
             <key>player05</key>
             <dict>
                 <key>frame</key>
-                <string>{{96,0},{96,96}}</string>
+                <string>{{200,385},{200,125}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
