@@ -6,15 +6,15 @@ var MyLayer = cc.Layer.extend({
         var size = cc.director.getWinSize();
 
         var TitleBG_png = cc.Sprite.create(res.TitleBG_png);
-         TitleBG_png.setPosition(size.width/2, size.height/2);
+         TitleBG_png.setPosition(size.width / 2, size.height / 2);
         this.addChild(TitleBG_png);
 
-        var Title_png = cc.Sprite.create(res.Title_png);
-         Title_png.setPosition(480, 330);
+        var Title_png = cc.Sprite.create(res.title_png);
+         Title_png.setPosition(size.width / 2, size.height / 2 + 50);
         this.addChild(Title_png);
 
         var start_png = cc.Sprite.create(res.start_png);
-        start_png.setPosition(size.width / 2, size.height / 4);
+        start_png.setPosition(size.width / 2, size.height / 6);
         this.addChild(start_png);
         //add code
          //タップイベントリスナーを登録する
@@ -34,12 +34,7 @@ var MyLayer = cc.Layer.extend({
     },
     onTouchMoved: function(touch, event) {},
     onTouchEnded: function(touch, event) {
-      //bgmの再生をとめる
-        /*if (audioEngine.isMusicPlaying()) {
-          audioEngine.stopMusic();
-        }*/
-        //クリック時のSE再生
-        //audioEngine.playEffect("res/zabun.mp3");
+
         //audioEngine.playEffect("res/se_select16.wav");
         // 次のシーンに切り替える
         cc.director.runScene(new gameScene());
