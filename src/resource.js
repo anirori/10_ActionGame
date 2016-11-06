@@ -20,6 +20,7 @@ var res = {
   //表示板
   ui_panels_png: "res/ui_panels.png",
   //敵
+  bat_frames: "res/bat_frames.png",
   zombi_frames: "res/zombie_frames.png",
   zombi_plist: "res/zombi.plist"
 };
