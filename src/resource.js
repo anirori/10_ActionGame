@@ -24,7 +24,12 @@ var res = {
   //敵
   bat_frames: "res/bat_frames.png",
   zombi_frames: "res/zombie_frames.png",
-  zombi_plist: "res/zombi.plist"
+  zombi_plist: "res/zombi.plist",
+  slime_green_frames: "res/slime_green_frames.png",
+  slime_green_plist: "res/slime_green.plist",
+  slime_red_frames: "res/slime_red_frames.png",
+  slime_red_plist: "res/slime_red.plist",
+  slime_yellow_plist: "res/slime_yellow.plist",
 };
 
 var g_resources = [];

@@ -4,9 +4,9 @@ var level = [
    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
    [0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
    [0, 0, 0, 0, 0, 0, 2, 2, 2, 0],
-   [6, 0, 0, 0, 0, 0, 0, 0, 0, 7],
+   [6, 0, 0, 0, 0, 0, 0, 0, 0, 12],
    [0, 0, 0, 2, 2, 2, 0, 0, 0, 0],
-   [0, 0, 0, 0, 3, 0, 0, 0, 4, 0],
+   [0, 7, 0, 0, 3, 0, 0, 8, 4, 9],
    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 var tileSize = 96;
@@ -35,6 +35,12 @@ var gameScene = cc.Scene.extend({
       this.addChild(enemys2);
       var zombie = new zombieLayer();
       this.addChild(zombie);
+      var slime = new slimeLayer();
+      this.addChild(slime);
+      var slime_red = new slime_red_Layer();
+      this.addChild(slime_red);
+      var slime_yellow = new slime_yellow_Layer();
+      this.addChild(slime_yellow);
    }
 });
 
@@ -87,7 +93,7 @@ var levelLayer = cc.Layer.extend({
                   curtainSprite.setPosition(tileSize * 0.8 + tileSize * j, 96 * (7 - i) - tileSize / 5.5);
                   this.addChild(curtainSprite);
                   break;
-               case 7:
+               case 12:
                   var curtain2Sprite = cc.Sprite.create(res.curtain2_png);
                   curtain2Sprite.setPosition(tileSize / 4 + tileSize * j, 96 * (7 - i) - tileSize / 5.5);
                   this.addChild(curtain2Sprite);
