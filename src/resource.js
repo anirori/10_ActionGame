@@ -20,17 +20,8 @@ var res = {
   //表示板
   ui_panels_png: "res/ui_panels.png",
   //敵
-  bat_frames: "res/bat_frames.png",
-  zonbi_frames: "res/zombie_frames.png",
-  zonbi01_png: "res/zonbi1.png",
-  zonbi02_png: "res/zonbi2.png",
-  zonbi03_png: "res/zonbi3.png",
-  zonbi04_png: "res/zonbi4.png",
-  zonbi05_png: "res/zonbi5.png",
-  zonbi06_png: "res/zonbi6.png",
-  zonbi07_png: "res/zonbi7.png",
-  zonbi08_png: "res/zonbi8.png",
-
+  zombi_frames: "res/zombie_frames.png",
+  zombi_plist: "res/zombi.plist"
 };
 
 var g_resources = [];

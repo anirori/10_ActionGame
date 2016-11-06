@@ -1,42 +1,45 @@
-var enemyBat;
+var zombie;
 
-var enemyLayer = cc.Layer.extend({
-   ctor: function() {
-      this._super();
-      enemyBat = new EnemyBat();
-      this.addChild(enemyBat);
-      //cc.eventManager.addListener(listener, this);
+var zombieLayer = cc.Layer.extend({
+    ctor: function() {
+        this._super();
+        zombie = new Zombie();
+        this.addChild(zombie);
+        //cc.eventManager.addListener(listener, this);
 
-   }
-
-});
-var EnemyBat = cc.Sprite.extend({
-  ctor: function() {
-    this._super();
-    this.initWithFile(res.zonbi_frames);
-    this.velocity = cc.p(0, 0);
-    this.FrameCount = 0;
-
-    for (i = 0; i < 7; i++) {　　　　　　
-      for (j = 0; j < 10; j++) {
-        if (level[i][j] == 5) {
-          this.setPosition(tileSize / 2 + tileSize * j, tileSize);
-        }
-      }
     }
 
-    //スプライトフレームを格納する配列
-    var animationframe = [];
+});
+var Zombie = cc.Sprite.extend({
+    ctor: function() {
+        this._super();
+        this.initWithFile(res.zombi_frames);
+        this.velocity = cc.p(0, 0);
+        this.FrameCount = 0;
 
-    var frame1 = new cc.SpriteFrame(res.zonbi01_png, cc.rect(0, 0, 96, 120));
-    var frame2 = new cc.SpriteFrame(res.zonbi02_png, cc.rect(0, 0, 96, 120));
-    var frame3 = new cc.SpriteFrame(res.zonbi03_png, cc.rect(0, 0, 96, 120));
-    var frame4 = new cc.SpriteFrame(res.zonbi04_png, cc.rect(0, 0, 96, 120));
-    var frame5 = new cc.SpriteFrame(res.zonbi05_png, cc.rect(0, 0, 96, 120));
-    var frame6 = new cc.SpriteFrame(res.zonbi06_png, cc.rect(0, 0, 96, 120));
-    var frame7 = new cc.SpriteFrame(res.zonbi07_png, cc.rect(0, 0, 96, 120));
-    var frame8 = new cc.SpriteFrame(res.zonbi08_png, cc.rect(0, 0, 96, 120));
-        //スプライトフレームを作成
+        for (i = 0; i < 7; i++) {　　　　　　
+            for (j = 0; j < 10; j++) {
+                if (level[i][j] == 4) {
+                    this.setPosition(tileSize / 2 + tileSize * j, 96 * (7 - i) - tileSize / 2);
+                }
+            }
+        }
+
+        // スプライトシートをキャッシュに登録
+        cc.spriteFrameCache.addSpriteFrames(res.zombi_plist, res.zombi_frames);
+
+        // スプライトフレームを取得 player01,player02はplistの中で定義されいいる
+        var frame1 = cc.spriteFrameCache.getSpriteFrame("zombi01");
+        var frame2 = cc.spriteFrameCache.getSpriteFrame("zombi02");
+        var frame3 = cc.spriteFrameCache.getSpriteFrame("zombi03");
+        var frame4 = cc.spriteFrameCache.getSpriteFrame("zombi04");
+        var frame5 = cc.spriteFrameCache.getSpriteFrame("zombi05");
+        var frame6 = cc.spriteFrameCache.getSpriteFrame("zombi06");
+        var frame7 = cc.spriteFrameCache.getSpriteFrame("zombi07");
+        var frame8 = cc.spriteFrameCache.getSpriteFrame("zombi08");
+
+        //スプライトフレームを配列に登録
+        var animationframe = [];
         animationframe.push(frame1);
         animationframe.push(frame2);
         animationframe.push(frame3);
@@ -46,15 +49,36 @@ var EnemyBat = cc.Sprite.extend({
         animationframe.push(frame7);
         animationframe.push(frame8);
 
-    //スプライトフレームの配列を連続再生するアニメーションの定義
-    var animation = new cc.Animation(animationframe, 0.3);
-    //永久ループのアクションを定義
-    var action = new cc.RepeatForever(new cc.animate(animation));
-    //実行
-    this.runAction(action);
+        //スプライトフレームの配列を連続再生するアニメーションの定義
+        var animation = new cc.Animation(animationframe, 0.15);
+        //永久ループのアクションを定義
+        var action = new cc.RepeatForever(new cc.animate(animation));
+        //実行
+        this.initWithFile(res.zombi_frames);
+        this.runAction(action);
 
-    this.scheduleUpdate();
+        this.scheduleUpdate();
 
-  },
+    },
+    update: function(dt) {
+        this.FrameCount++;
+        //4フレームに1回　ゾンビの移動計算する
+        if (this.FrameCount % 10 == 0) {
+            //プレイヤーの位置をゾンビの位置の差を計算
+            var offset_x = player.getPosition().x - this.getPosition().x;
 
+            var velocity_x = lerp(this.velocity.x, offset_x,0.001);
+            this.velocity.x = velocity_x;
+
+            if (this.velocity.x <= 0)
+                this.setFlippedX(true);
+            if (this.velocity.x > 0)
+                this.setFlippedX(false);
+            this.setPosition(this.getPosition().x + this.velocity.x, this.getPosition().y);
+        }
+    }
 });
+//始点、終点、の間で 0～1.0の割合の位置を返す関数
+function lerp(fStart, fEnd, fPercent) {
+    return fStart + ((fEnd - fStart) * fPercent);
+}
