@@ -31,6 +31,8 @@ var gameScene = cc.Scene.extend({
       this.addChild(player);
       var enemys = new enemyLayer();
       this.addChild(enemys);
+      var enemys2 = new enemyLayer2();
+      this.addChild(enemys2);
       var zombie = new zombieLayer();
       this.addChild(zombie);
    }
