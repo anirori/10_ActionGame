@@ -1,8 +1,8 @@
 var res = {
   //タイトル
-  TitleBG_png: "res/background_back.png",
+  TitleBG_png: "res/background_back2.png",
   title_png: "res/title.png",
-  start_png: "btn_play.png",
+  start_png: "res/btn_play.png",
   //プレイヤー
   player_sheet: "res/sir_awesome_frames.png",
   player_plist: "res/player.plist",
